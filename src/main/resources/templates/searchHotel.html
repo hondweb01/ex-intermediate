@@ -4,21 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" th:href="@{/style.css}">
 </head>
 <body>
-    <h1>ホテル検索</h1>
-    <form th:action="@{/searchbyhotels/sendpriceData}" method="post">
+    <h1 class="hotelSerch">ホテル検索</h1>
+    <form th:action="@{/searchbyhotels/sendpriceData}" method="post" th:object="${hotelForm}">
     <input type="submit" value="検索" >
-    <input type="text" name="strPrice">円以下
+    <input type="text" th:field="*{price}">円以下
     </form>
     <!-- ifで記載 -->
-     <th:block th:if="${hotelData}">
-        <th:block th:each="${hotelData}">
-        <table>
+     <th:block th:if="${hotelDataList}">
+        <th:block th:each="hotelData:${hotelDataList}">
+        <table class="hotelTable" >
             <tr>
                 <td>ホテル名</td>
                 <td th:text="${hotelData.hotel_name}"></td>
+            </tr>
+            <tr>
+                <td>最寄り駅</td>
+                <td th:text="${hotelData.nearest_station}"></td>
+            </tr>
+            <tr>
+                <td>金額</td>
+                <td th:text="${hotelData.price}"></td>                
             </tr>
         </table>
         </th:block>

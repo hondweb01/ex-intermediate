@@ -18,6 +18,11 @@ public List<SearchHotelDTO> selectPriceHotelList(Integer price){
     return repository.selectPriceHotelList(price);
 
 }
+    public List<SearchHotelDTO> findAllHotelList() {
+
+     List<SearchHotelDTO>  findAllhotelList = repository.findAllHotelList();
+        return findAllhotelList;
+    }
     
     
 }

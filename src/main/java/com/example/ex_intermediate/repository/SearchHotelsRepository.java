@@ -32,10 +32,16 @@ public class SearchHotelsRepository {
      * 発足日順
      */
     public List<SearchHotelDTO> selectPriceHotelList(Integer price) {
-        String sql = "select *from hotels where price<:price;";
+        String sql = "select *from hotels where price<=:price;";
         SqlParameterSource param=new MapSqlParameterSource().addValue("price", price);
      List<SearchHotelDTO>  hotelList = template.query(sql,param,HOTELS_ROW_MAPPER);
         return hotelList;
+    }
+    public List<SearchHotelDTO> findAllHotelList() {
+        String sql = "select *from hotels;";
+   
+     List<SearchHotelDTO>  findAllhotelList = template.query(sql,HOTELS_ROW_MAPPER);
+        return findAllhotelList;
     }
     
 }
