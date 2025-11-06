@@ -1,13 +1,6 @@
 package com.example.ex_intermediate.dto;
 
 public class TeamDTO {
-    /**
-     * @param id           チームID
-     * @param league_name  リーグ名
-     * @param headquarters 本拠地
-     * @param inauguration 発足日
-     * @param history      歴史（球団名の変更）
-     */
     private Integer id;
     private String league_name;
     private String team_name;

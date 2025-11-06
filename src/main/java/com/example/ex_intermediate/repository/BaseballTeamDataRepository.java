@@ -30,6 +30,8 @@ public class BaseballTeamDataRepository {
     };
 
     /**
+     * 各チームのデータをリスト型で取得
+     * 
      * @param teamData チームデータ
      * @return チームリスト
      *         発足日順
@@ -44,9 +46,10 @@ public class BaseballTeamDataRepository {
     }
 
     /**
-     * @param teamDataById id絞りのチームデータ
-     *
+     * idで指定したデータを取得
      * 
+     * @param teamDataById id絞りのチームデータ
+     * @return idで指定されたチームデータの詳細
      */
 
     public TeamDTO loadTeam(Integer id) {

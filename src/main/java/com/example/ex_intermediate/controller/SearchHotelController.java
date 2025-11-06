@@ -8,11 +8,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/searchprice")
 public class SearchHotelController {
     @GetMapping("")
-    public String viewSearchPrice(){
+    public String viewSearchPrice() {
         return "search";
 
     }
 
-    
-    
 }
