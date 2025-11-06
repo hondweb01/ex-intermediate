@@ -13,12 +13,19 @@ public class BaseballTeamDataService {
     @Autowired
     BaseballTeamDataRepository repository;
 
-    public TeamDTO viewBaseballTeamData(Integer id){
+
+    public List<TeamDTO> TeamList() {
+        return repository.TeamList();
+    }
+    
+    /**
+     * 
+     * @param id 
+     * @return idで指定したチームデータ
+     */
+    public TeamDTO loadTeam(Integer id) {
+      
         return repository.loadTeam(id);
     }
-    public List<TeamDTO> TeamList(){
-       return repository.TeamList();
-    }
 
-    
 }
