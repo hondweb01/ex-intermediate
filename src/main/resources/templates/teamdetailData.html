@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <dl>
+      <dt><h1>球団名</h1></dt>
+      <dd th:text="${teamData.team_name}"></dd>
+    </dl>
+    <dl>
+      <dt><h1>本拠地</h1></dt>
+      <dd th:text="${teamData.headquarters}"></dd>
+    </dl>
+    <dl>
+      <dt><h1>発足</h1></dt>
+      <dd th:text="${teamData.inauguration}"></dd>
+    </dl>
+    <dl>
+      <dt><h1>歴史</h1></dt>
+      <dd th:each="history, stat :${historyData}">
+        <div th:text="${history}"></div>
+        <span th:if="${!stat.last}">↓</span>
+      </dd>
+    </dl>
+    <form th:action="@{/baseballteam/returnview}">
+      <input type="submit" value="戻る" />
+    </form>
+  </body>
+</html>
