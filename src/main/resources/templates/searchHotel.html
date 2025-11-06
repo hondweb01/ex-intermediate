@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1>ホテル検索</h1>
+    <form th:action="@{/searchbyhotels/sendpriceData}" method="post">
+    <input type="submit" value="検索" >
+    <input type="text" name="strPrice">円以下
+    </form>
+    <!-- ifで記載 -->
+     <th:block th:if="${hotelData}">
+        <th:block th:each="${hotelData}">
+        <table>
+            <tr>
+                <td>ホテル名</td>
+                <td th:text="${hotelData.hotel_name}"></td>
+            </tr>
+        </table>
+        </th:block>
+     </th:block>
+    
+</body>
+</html>
