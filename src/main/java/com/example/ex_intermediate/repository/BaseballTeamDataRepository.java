@@ -1,5 +1,6 @@
 package com.example.ex_intermediate.repository;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,23 +35,34 @@ public class BaseballTeamDataRepository {
      * 発足日順
      */
     public List<TeamDTO> TeamList() {
+   
         String sql = "select *from teams order by inauguration asc";
 
         List<TeamDTO> teamData = template.query(sql, TEAM_ROW_MAPPER);
         return teamData;
-    }
 
+}
     /**
      * @param teamDataById id絞りのチームデータ
      *
      * 
      */
 
-    public TeamDTO loadTeam(Integer id) {
+    public TeamDTO loadTeam(Integer id){
+
+        
+        try{
         String sql = "select *from teams where id=:id  order by inauguration asc";
         SqlParameterSource param = new MapSqlParameterSource().addValue("id", id);
         TeamDTO teamDataById = template.queryForObject(sql, param, TEAM_ROW_MAPPER);
-        return teamDataById;
+                return teamDataById;
+        }catch(Exception e){
+                    TeamDTO team=new TeamDTO();
+            return team;
+
+        } 
+
+
     }
 
 }

@@ -11,7 +11,7 @@
     <ul th:each="team:${teamList}">
       <li>
         <a
-          th:href="@{/baseballteam/teamdetail/{teamId}(teamId=${team.id})}"
+          th:href="@{/baseballteam/teamdetailview/{teamId}(teamId=${team.id})}"
           th:text="${team.team_name}"
         ></a>
       </li>
